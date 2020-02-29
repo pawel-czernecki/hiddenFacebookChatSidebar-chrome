@@ -1,30 +1,31 @@
 {
-    "manifest_version": 1,
+    "manifest_version": 2,
     "name": "hiddenFacebookChatSidebar",
     "version": "1.0.0",
     "author": "Paweł Czernecki",
 
     "description": "hiddenFacebookChatSidebar is a simple tool designed to display facebook chat as popup irrespective from screen resolution.",
 
-    "app": {
-      "background": {
-        "scripts": ["background.js"]
-      }
-    },
+    "content_scripts": [
+        {
+          "matches": ["*://facebook.com/*"],
+          "js": ["background.js"]
+        }
+      ],
 
     "browser_action": {
 		"browser_style": false,
 		"default_icon": {
-			"16": "",
-			"32": ""
+			"16": "icons/16.png",
+			"32": "icons/32.png"
 		},
 		"default_popup": "popup.html",
 		"default_title": "hiddenChatSidebar"
     },
     
     "icons": {
-		"48": "",
-		"96": ""
+		"48": "icons/48.png",
+		"96": "icons/96.png"
     },
     
     "permissions": [
