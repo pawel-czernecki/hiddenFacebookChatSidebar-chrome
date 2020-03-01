@@ -1,8 +1,15 @@
-document.getElementsByTagName( 'html' )[0].classList.remove("sidebarMode");
-
-window.addEventListener('resize', ()=>{
-    document.getElementsByTagName( 'html' )[0].classList.remove("sidebarMode");
+chrome.storage.sync.get('isHide',(result)=>{
+  if(result.isHide=='true')
+  {
+      document.getElementsByTagName( 'html' )[0].classList.remove("sidebarMode");
+      window.addEventListener('resize', ()=>{
+      document.getElementsByTagName( 'html' )[0].classList.remove("sidebarMode");
+    });
+  }
 });
+
+
+
 
 chrome.storage.sync.onChanged.addListener(function(changes, namespace) {
     for(key in changes) {
